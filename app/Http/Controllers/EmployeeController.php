@@ -90,9 +90,9 @@ class EmployeeController extends Controller
             $emp_dep_pos->position_id=$pos;
             $emp_dep_pos->save(); 
 
-            Mail::raw('Your registration process is complete.',function($message){
-                $message->subject('Dear Employee')->from('lonlon.blah@gmail.com')->to('thureinlynn.acc4889@gmail.com');
-            });
+            // Mail::raw('Your registration process is complete.',function($message){
+            //     $message->subject('Dear Employee')->from('lonlon.blah@gmail.com')->to('thureinlynn.acc4889@gmail.com');
+            // });
             return response()->json(['status'=>'OK','message'=>"Save Successful"],200);  
         }catch(QueryException $e){
                 return response()->json([
@@ -318,15 +318,18 @@ class EmployeeController extends Controller
      */
     public function fileExport(Request $request) 
     { 
-        $data=[];
+        //$data=$request->all();
+         /*$data=$request->id;
+         $name=$request->name;*/
+         $data=[];
         if($request->id)
         {
-            $data_id=['id',$request->id];
+            $data_id=['employees.id',$request->id];
             array_push($data, $data_id);
         }
         if ($request->employee_name) 
         {
-            $data_name=['employee_name','LIKE',$request->employee_name.'%'];
+            $data_name=['employees.employee_name','LIKE',$request->employee_name.'%'];
             array_push($data, $data_name);
         }
         //$aa=Employee::with('department','position')->where($data);

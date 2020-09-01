@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Position;
 use Illuminate\Support\Facades\Config;
-use App\Http\Requests\PositionRequests;
+use App\Http\Requests\PositionRequest;
 
 /**
      * Description of this class.
