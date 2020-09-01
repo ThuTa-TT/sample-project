@@ -90,9 +90,9 @@ class EmployeeController extends Controller
             $emp_dep_pos->position_id=$pos;
             $emp_dep_pos->save(); 
 
-            // Mail::raw('Your registration process is complete.',function($message){
-            //     $message->subject('Dear Employee')->from('lonlon.blah@gmail.com')->to('maungthuta2012@gmail.com');
-            //});
+            Mail::raw('Your registration process is complete.',function($message){
+                $message->subject('Dear Employee')->from('lonlon.blah@gmail.com')->to('thureinlynn.acc4889@gmail.com');
+            });
             return response()->json(['status'=>'OK','message'=>"Save Successful"],200);  
         }catch(QueryException $e){
                 return response()->json([
@@ -265,8 +265,8 @@ class EmployeeController extends Controller
         //die($request);
         try
         {
-            Artisan::call('cache:clear');//clear cache
-            Artisan::call('config:cache');//clear config
+            // Artisan::call('cache:clear');//clear cache
+            // Artisan::call('config:cache');//clear config
             $perPage=Config::get('constant.per_page');
             // $limit=(int)env('limit');
 
