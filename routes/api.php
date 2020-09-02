@@ -43,3 +43,10 @@ Route::apiResource('/deparment_positions','DepPosController');
 Route::post('/employee-import', 'EmployeeController@fileImport');
 Route::get('/employee-export', 'EmployeeController@fileExport');
 Route::get('/employee-pdf','EmployeeController@createPDF');
+
+//emp_registration
+Route::get('save','EmpRegistrationCOntroller@save');
+Route::post('update','EmpRegistrationCOntroller@update');
+
+//pos_registration
+Route::get('savepos','PositionRegistrationController@save');
