@@ -98,9 +98,17 @@ class EmployeesExport implements FromCollection,WithHeadings,WithTitle,ShouldAut
 			AfterSheet::class    => function(AfterSheet $event) {
 
 				$cellRange='A1:F1';
+				$styleArray = [
+							    'borders' => [
+							        'outline' => [
+							            'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+							            'color' => ['argb' => '98AFC7'],
+							        ],
+							    ],
+							];
 				$event->sheet->getDelegate()->getStyle($cellRange)->getFont()->setSize(14);
 				$event->sheet->getStyle('A1:F1')->getFill()->setFillType(\PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID)
-				->getStartColor()->setARGB('98AFC7');
+				->getStartColor()->setARGB('98AFC7')->applyFromArray($styleArray);
 			},
 		];
 	}
